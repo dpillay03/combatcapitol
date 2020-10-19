@@ -1,0 +1,11 @@
+.article {
+    width: 70%
+}
+.article-container{
+    width: 400px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    float: left;
+}
+.article-image {
+    width: 399px;
+}

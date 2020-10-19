@@ -41,23 +41,23 @@ export default class JiuJitsu extends React.Component {
         const { isLoading, articles } = this.state;
         return <React.Fragment>
             <h1>Jiu Jitsu</h1>
-            <div>
+            <div className="article">
                 {!isLoading ? (
                     articles.map(article => {
                         const { date, title, url, image, source, description } = article;
                         return (
                             <a key={title} href={url}>
-                                <div>
+                                <div className="article-container">
                                     {article.image !== 'null' ?
-                                        <img src={image} alt={title} />
+                                        <img className="article-image" src={image} alt={title} />
                                         :
-                                        <img src='https://i.ibb.co/G5M25Qj/5.png' alt="no image" />
+                                        <img className="article-image" src='https://i.ibb.co/RvVv7Dt/2.png' alt="no image" />
 
                                     }
-                                    <p>{date}</p>
-                                    <p>{title}</p>
-                                    <p>{description}</p>
-                                    <p>{source}</p>
+                                    <p className="article-date">{date}</p>
+                                    <p className="article-title">{title}</p>
+                                    <p className="article-description">{description}</p>
+                                    <p className="article-source">{source}</p>
                                 </div></a>
                         );
                     })

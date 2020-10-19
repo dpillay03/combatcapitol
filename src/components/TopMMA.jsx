@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from "axios";
 
-export default class TopMMA extends React.Component {
+export default class TopStories extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -9,12 +9,12 @@ export default class TopMMA extends React.Component {
             isLoading: true,
             errors: null
         };
-        this.topArticlesMMA = this.topArticlesMMA.bind(this);
+        this.TopStoriesPage = this.TopStoriesPage.bind(this);
     }
 
-    topArticlesMMA = (e) => {
+    TopStoriesPage = (e) => {
         axios
-            .get(`https://newsapi.org/v2/everything?q=mma+boxing+wrestling&apiKey=4418706137bb4eac83503f80399fcfc5`)
+            .get(`https://newsapi.org/v2/everything?q=mma+boxing+wrestling+bjj&apiKey=4418706137bb4eac83503f80399fcfc5`)
             .then(response =>
                 response.data.articles.map(article => ({
                     image: `${article.urlToImage}`,
@@ -35,29 +35,31 @@ export default class TopMMA extends React.Component {
             .catch(error => this.setState({ error, isLoading: false }));
     }
     componentDidMount() {
-        this.topArticlesMMA();
+        this.TopStoriesPage();
     }
     render() {
         const { isLoading, articles } = this.state;
         return <React.Fragment>
-            <h2>Top Stories in MMA</h2>
-            <div>
+            <h2>Top Stories in Combat Sports</h2>
+            <div className="article">
                 {!isLoading ? (
                     articles.map(article => {
                         const { date, title, url, image, source, description } = article;
                         return (
                             <a key={title} href={url}>
-                                <div>
+                                <div className="article-container">
                                     {article.image !== 'null' ?
-                                        <img src={image} alt={title} />
+                                        <img className="article-image" src={image} alt={title} />
                                         :
-                                        <img src='https://i.ibb.co/RvVv7Dt/2.png' alt="no image" />
+                                        <img className="article-image" src='https://i.ibb.co/RvVv7Dt/2.png' alt="no image" />
+
                                     }
-                                    <p>{date}</p>
-                                    <p>{title}</p>
-                                    <p>{description}</p>
-                                    <p>{source}</p>
-                                </div></a>
+                                    <p className="article-date">{date}</p>
+                                    <p className="article-title">{title}</p>
+                                    <p className="article-description">{description}</p>
+                                    <p className="article-source">{source}</p>
+                                </div>
+                            </a>
                         );
                     })
                 ) : (

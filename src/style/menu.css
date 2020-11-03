@@ -1,13 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+#hamburger {
+    visibility: hidden;
+}
+.mobile-menu-li{
+    display: none;
+}
+/* #mobile-menu-nav {
+    position: relative;
+    transform: translateX(-100vw);
+    opacity: 0;
+    z-index: 10;
+    transition: transform .5s ease, opacity ease .2s;
+} */
 
+  #nav-menu.now-active {
+    transform: translateX(0);
+    transition: transform .5s ease, opacity ease .2s;
+    opacity: 1;
+    background-color:#eaeaea;
+  }
+
+  .nav-list {
+    padding: 10px;
+    list-style-type: none;
+    font-size: 2em;
+  }
 .menu-container{
     width:20%;
     margin-right:2%;
     float: left;
 }
-.menu {
-    float: right;
-}
+
 .clearfix{
     clear:both
 }
@@ -27,13 +50,83 @@ li {
     transition: .6s
 }
 a:hover {
-    color: #66fcf1;
+    color: white;
 }
 a:active {
     color: #66fcf1;
 }
 a {
     text-decoration: none;
-    color: white;
+    color: #66fcf1;
     transition: .6s
 }
+
+@media only screen and (max-width: 600px) {
+    .main-menu-nav {
+      display: none;
+    }
+    #hamburger {
+        visibility: visible;
+        margin-right: 10px;
+        margin-top: 25px;
+        display: block;
+        width: 45px;
+        height: 30px;
+        position: relative;
+        cursor: pointer;
+        float: right;
+    }
+      #hamburger span {
+        display: block;
+        position: absolute;
+        height: 6px;
+        width: 100%;
+        background:#66fcf1;
+        border-radius: 1px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: .5s ease-in-out;
+      }
+    
+      #hamburger span:nth-child(1) {
+        top: 0px;
+        transform-origin: left center;
+      }
+    
+      #hamburger span:nth-child(2) {
+        top: 21px;
+        transform-origin: left center;
+      }
+    
+      #hamburger span:nth-child(3) {
+        top: 42px;
+        transform-origin: left center;
+      }
+    
+      #hamburger.close span:nth-child(1) {
+        transform: rotate(45deg);
+      }
+    
+      #hamburger.close span:nth-child(2) {
+        width: 0%;
+        opacity: 0;
+        transition: .1s;
+      }
+    
+      #hamburger.close span:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+
+    .mobile-menu-li{
+        display: block;
+        text-align: center;
+    }
+    .mobile-menu-li::first-line{
+        margin-top: 10em;
+    }
+    .mobile-menu-ul {
+        padding: 0;
+        margin: 0;
+    }
+  }

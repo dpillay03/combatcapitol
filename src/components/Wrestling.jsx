@@ -40,7 +40,7 @@ export default class Wrestling extends React.Component {
     render() {
         const { isLoading, articles } = this.state;
         return <React.Fragment>
-            <h1>Wrestling</h1>
+            <h1>Wrestling News</h1>
             <div className="article">
                 {!isLoading ? (
                     articles.map(article => {
@@ -54,10 +54,16 @@ export default class Wrestling extends React.Component {
                                         <img className="article-image" src='https://i.ibb.co/RvVv7Dt/2.png' alt="no image" />
 
                                     }
-                                    <p className="article-date">{date}</p>
+                                                                        <div className="source-date-container">
+                                        <div className="source-div">
+                                        <p className="article-source">{source}</p>
+                                        </div>
+                                        <div>
+                                        <p className="article-date">{date}</p>
+                                        </div>
+                                    </div>
                                     <p className="article-title">{title}</p>
                                     <p className="article-description">{description}</p>
-                                    <p className="article-source">{source}</p>
                                 </div>
                             </a>
                         );

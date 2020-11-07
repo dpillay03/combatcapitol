@@ -51,7 +51,7 @@ export default class MMA extends React.Component {
                                     {article.image !== 'null' ?
                                         <img className="article-image" src={image} alt={title} />
                                         :
-                                        <img className="article-image" src='https://i.ibb.co/RvVv7Dt/2.png' alt="no image" />
+                                        <img className="article-image" src='https://i.ibb.co/RvVv7Dt/2.png' alt="default if empty" />
 
                                     }
                                     <div className="source-date-container">

@@ -51,7 +51,7 @@ export default class MuayThai extends React.Component {
                                     {article.image !== 'null' ?
                                         <img className="article-image" src={image} alt={title} />
                                         :
-                                        <img className="article-image" src='https://i.ibb.co/RvVv7Dt/2.png' alt="no image" />
+                                        <img className="article-image" src='https://i.ibb.co/RvVv7Dt/2.png' alt="placeholder if there isn't one found" />
 
                                     }
                                     <div className="source-date-container">
